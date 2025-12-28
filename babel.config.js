@@ -1,5 +1,8 @@
 export default {
-    plugins: [
-        "@babel/plugin-transform-arrow-functions"
+    // plugins: [
+    //     "@babel/plugin-transform-arrow-functions"
+    // ]
+    presets: [
+        "@babel/preset-env"
     ]
 }
