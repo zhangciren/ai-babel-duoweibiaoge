@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d dist"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhangciren/ai-babel-duoweibiaoge.git"
+  },
+  "devDependencies": {
+    "@babel/core": "7.28.5",
+    "@babel/cli": "7.28.3"
   },
   "author": "",
   "license": "ISC",
