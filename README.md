@@ -1,7 +1,7 @@
 # 操作记录
 - 实现1: 通过babel对src/index.js文件进行编译，生成dist/index.js文件（执行npm run build即可）
 - 实现2: 通过@babel/plugin-transform-arrow-functions插件，将src/index.js文件中的箭头函数，转换成普通函数。
-- 实现3:
+- 实现3: 通过@babel/preset-env预设，将src/index.js文件中箭头函数转为普通函数 + const转为let (es6+的语法，转换成es5的语法)
 
 
 
@@ -18,3 +18,4 @@
         - 插件1：将箭头函数转换成普通函数
     - 预设(preset):
         - 预设是一组插件的集合，预设的作用是将一些常用的插件，组合在一起，形成一个完整的编译流程。
+    - @babel/preset-env（就是一个预设包）: 它内置了所有 ES6+ 语法转译插件，并能根据环境自动启用 / 禁用插件，是前端项目兼容低版本环境的标配。
