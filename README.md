@@ -2,6 +2,10 @@
 - 实现1: 通过babel对src/index.js文件进行编译，生成dist/index.js文件（执行npm run build即可）
 - 实现2: 通过@babel/plugin-transform-arrow-functions插件，将src/index.js文件中的箭头函数，转换成普通函数。
 - 实现3: 通过@babel/preset-env预设，将src/index.js文件中箭头函数转为普通函数 + const转为let (es6+的语法，转换成es5的语法)
+- 实现4: 手动实现一个简单的babel，完整整个编译的过程，从代码输入，到转化，到输出完整的流程（包括词法分析、语法分析、语义分析、代码生成）。到这里核心的babel流程就已经掌握了
+    - 步骤：安装@babel/parser、@babel/traverse、@babel/generator这三个包
+    - 实现：在compile.js文件中，引入这三个包，实现从代码输入，到转化，到输出完整的流程。
+    - 执行命令：npm run mybuild，即可在dist/myindex.js文件中看到编译后的代码。
 
 
 
