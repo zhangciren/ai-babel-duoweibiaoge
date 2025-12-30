@@ -35,10 +35,11 @@ const visitor = {
 }
 traverse.default(ast, visitor);
 
-// 代码生成
+// 代码生成(已经把const 转换为 let)
 const res = generator.default(ast, {}, code);
 console.log("res =====", res);
 
+// 接下来通过自己写的插件，把箭头函数转换为普通函数
 const { code: transformedCode } = babelCore.transformFromAstSync(ast, res.code, {
   plugins: [ArrowFunctionPlugin], // 这里才是加载转换插件的正确位置
 });
