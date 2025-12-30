@@ -7,6 +7,7 @@
     "build": "babel src -d dist",
     "mybuild": "node compile.js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhangciren/ai-babel-duoweibiaoge.git"
@@ -18,7 +19,8 @@
     "@babel/preset-env": "7.28.5",
     "@babel/parser": "7.28.5",
     "@babel/traverse": "7.28.5",
-    "@babel/generator": "7.28.5"
+    "@babel/generator": "7.28.5",
+    "@babel/helper-plugin-utils": "7.27.1"
   },
   "author": "",
   "license": "ISC",
