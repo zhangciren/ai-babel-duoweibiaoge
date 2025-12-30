@@ -6,6 +6,10 @@
     - 步骤：安装@babel/parser（解析）、@babel/traverse（转换）、@babel/generator（生成）这三个包
     - 实现：在compile.js文件中，引入这三个包，实现从代码输入，到转化，到输出完整的流程。
     - 执行命令：npm run mybuild，即可在dist/myindex.js文件中看到编译后的代码。
+- 实现5: 手动实现一个简单的babel插件，将src/index.js文件中的箭头函数，转换成普通函数。
+    - 实现：在plugins/ArrowFunctionPlugin.js文件中，实现一个简单的babel插件，将箭头函数转换成普通函数。
+    - 在compile.js文件中，引入ArrowFunctionPlugin插件，将箭头函数转换成普通函数。
+    - 执行命令：npm run mybuild，即可在dist/myindex.js文件中看到编译后的代码。
 
 
 
