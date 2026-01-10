@@ -71,3 +71,80 @@ function tokenize(expression) {
 
     return tokens;
 }
+
+function parse(tokens) {
+    let current = 0;
+
+    // 核心递归函数: 消费 Token 并返回一个 AST Node
+    function walk() {
+        let token = tokens[current];
+
+        // Case 1: 数字字面量
+        if (token.type === "number") {
+            current++;
+            return { type: "NumberLiteral", value: token.value };
+        }
+
+        // Case 2: 函数调用 (CallExpression)
+        // 结构: 函数名 -> ( -> 参数1, 参数2... -> )
+        if (token.type === "function") {
+            current++; // 消费函数名
+
+            const node = {
+                type: "CallExpression",
+                name: token.value,
+                params: [],
+            };
+
+            token = tokens[++current]; // 跳过 '(', 准备解析参数
+
+            // 循环解析参数，直到遇到 ')'
+            // 这里体现了“递归”：参数本身可能是另一个函数调用 (walk())
+            while (token.type !== ")") {
+                node.params.push(walk()); // <--- 递归入口
+                token = tokens[current];
+
+                if (token.type === ",") {
+                    current++; // 跳过逗号
+                }
+            }
+
+            current++; // 消费闭合括号 ')'
+            return node;
+        }
+
+        // Case 3: 变量与链式属性访问 (Member Access)
+        // 支持: person.age
+        if (token.type === "variable") {
+            let value = token.value;
+            current++;
+
+            // 这是一个简单的 Lookahead, 如果后面跟着点号, 则拼接属性
+            while (tokens[current] && tokens[current].type === "dot") {
+                current++; // 消费 '.'
+                if (tokens[current] && tokens[current].type === "variable") {
+                    value += "." + tokens[current].value; // 拼接路径 'person.age'
+                    current++;
+                } else {
+                    throw new TypeError('Expected variable after "."');
+                }
+            }
+
+            return { type: "Variable", value };
+        }
+
+        throw new TypeError("Unknown token type: " + token.type);
+    }
+
+    // 根节点 Program
+    const ast = {
+        type: "Program",
+        body: [],
+    };
+
+    while (current < tokens.length) {
+        ast.body.push(walk());
+    }
+
+    return ast;
+}
