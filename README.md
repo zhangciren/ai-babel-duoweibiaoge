@@ -10,6 +10,13 @@
     - 实现：在plugins/ArrowFunctionPlugin.js文件中，实现一个简单的babel插件，将箭头函数转换成普通函数。
     - 在compile.js文件中，引入ArrowFunctionPlugin插件，将箭头函数转换成普通函数。
     - 执行命令：npm run mybuild，即可在dist/myindex.js文件中看到编译后的代码。
+- 实现6: 类飞书多维表格编译器实战
+    - 原理介绍：
+        - 例如，需要实现sum(1+1)
+        - 首先，拆。s、u、m、(、1、+、1、)
+        - 1. 这个拆的过程，就是词法分析。上面的例如s、u、m、(、1、+、1、)，就是把代码拆分（词法分析）成一个一个的token（词法单元）。做词法分析的工具我们称之为tokenizer（词法分析器）。
+        - 2. 转换为标准的ast（或者叫dsl）：这个过程我们称之为parser(转换)
+        - 3. 代码生成(generator)  或者  代码执行(interpreter)——————我们现在这个实战场景，是用的代码执行（interpreter）。
 
 
 
