@@ -18,7 +18,7 @@
         - 2. 转换为标准的ast（或者叫dsl）：这个过程我们称之为parser(转换)
         - 3. 代码生成(generator)  或者  代码执行(interpreter)——————我们现在这个实战场景，是用的代码执行（interpreter）。
     - 操作步骤
-        - 1. 新建formula.js文件
+        - 1. 新建formula.js文件，实现了一个简单的公式编译器，能够计算出公式的结果。（执行npm run invoke即可）
 
 
 

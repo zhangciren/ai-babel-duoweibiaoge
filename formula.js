@@ -226,6 +226,7 @@ function formulaInvoker(code, data) {
     console.log(res);
 }
 
-formulaInvoker("Add(3, person.age)", {
+// 计算结果
+formulaInvoker("Divide(Add(4, person.age), person.age)", {
     person: { age: 2 },
 });
