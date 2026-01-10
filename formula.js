@@ -148,3 +148,69 @@ function parse(tokens) {
 
     return ast;
 }
+
+const addPlugin = {
+    name: 'add',
+};
+
+const subtractPlugin = {
+    name: 'subtract',
+}
+
+/**
+ * Interpreter: 遍历 AST 并计算结果
+ * @param {Object} ast - 抽象语法树
+ * @param {Object} context - 运行时上下文数据（e.g., { person: { age: 2 } }）
+ */
+function interpret(ast, context = {}) {
+    // 1. 算子白名单（Standard Library）
+    // 只有在这里定义的函数才能被执行，天然屏蔽了 eval/window 等危险操作
+    const operators = {
+        Add: (a, b) => a + b,
+        Subtract: (a, b) => a - b,
+        Multiply: (a, b) => a * b,
+        Divide: (a, b) => a / b,
+    };
+
+    function traverseNode(node) {
+        // 终结符: 数字
+        if (node.type === "NumberLiteral") {
+            return node.value;
+        }
+
+        // 终结符: 变量
+        // 解析 'person.age' 并从 context 中取值
+        if (node.type === "Variable") {
+            const keys = node.value.split(".");
+            let value = context;
+
+            // 逐层深入对象取值
+            for (let key of keys) {
+                if (!(key in value)) {
+                    throw new TypeError("Unknown variable: " + key);
+                }
+                value = value[key];
+            }
+            return value;
+        }
+
+        // 非终结符: 函数调用
+        if (node.type === "CallExpression") {
+            // 递归计算所有参数的值
+            const args = node.params.map(traverseNode);
+
+            const func = operators[node.name];
+            if (!func) {
+                throw new TypeError("Unknown function: " + node.name);
+            }
+
+            // 执行函数
+            return func(...args);
+        }
+
+        throw new TypeError("Unknown node type: " + node.type);
+    }
+
+    // 从 Program 的第一个语句开始执行
+    return traverseNode(ast.body[0]);
+}
