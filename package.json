@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist",
-    "mybuild": "node compile.js"
+    "mybuild": "node compile.js",
+    "invoke": "node formula.js"
   },
   "type": "module",
   "repository": {

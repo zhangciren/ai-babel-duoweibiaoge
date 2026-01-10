@@ -11,9 +11,9 @@ function tokenize(expression) {
         let char = expression[current];
 
         // 1. 处理数字 (支持多位整数)
-        if (/\\d/.test(char)) {
+        if (/\d/.test(char)) {
             let number = "";
-            while (/\\d/.test(char)) {
+            while (/\d/.test(char)) {
                 number += char;
                 char = expression[++current];
             }
@@ -214,3 +214,18 @@ function interpret(ast, context = {}) {
     // 从 Program 的第一个语句开始执行
     return traverseNode(ast.body[0]);
 }
+
+function formulaInvoker(code, data) {
+    // 1. 生成 token
+    const tokens = tokenize(code);
+    // 2. 代码转换生成 ast
+    const ast = parse(tokens);
+    // 3. 代码执行
+    const res = interpret(ast, data);
+
+    console.log(res);
+}
+
+formulaInvoker("Add(3, person.age)", {
+    person: { age: 2 },
+});
