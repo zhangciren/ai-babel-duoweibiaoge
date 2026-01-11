@@ -1,6 +1,7 @@
 import { ChatOllama } from "@langchain/ollama";
 import { StateGraph, START, END } from "@langchain/langgraph";
 import { HumanMessage, SystemMessage, AIMessage } from "@langchain/core/messages";
+import { formulaInvoker } from './formula.js';
 
 
 const SYSTEM_PROMPT = `
@@ -130,6 +131,10 @@ async function runDemo() {
 
   console.log(`\n✨ 最终生成的可执行公式：${finalFormula}`);
   // 这里可以调用 interpret(parse(tokenize(finalFormula))) 执行计算
+  const res = formulaInvoker(finalFormula, {
+    person: { age: 2, salary: 5000 },
+  });
+  console.log(`最终的计算结果：${res}`);
 }
 
 runDemo();

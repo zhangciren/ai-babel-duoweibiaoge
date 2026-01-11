@@ -215,7 +215,7 @@ function interpret(ast, context = {}) {
     return traverseNode(ast.body[0]);
 }
 
-function formulaInvoker(code, data) {
+export function formulaInvoker(code, data) {
     // 1. 生成 token
     const tokens = tokenize(code);
     // 2. 代码转换生成 ast
@@ -224,6 +224,7 @@ function formulaInvoker(code, data) {
     const res = interpret(ast, data);
 
     console.log(res);
+    return res;
 }
 
 // 计算结果

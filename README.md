@@ -26,7 +26,7 @@
             - 启动模型：ollama run qwen3:0.6b
             - 查看模型列表：ollama list 
         - 4. 把模型启动起来：ollama serve
-        - 5. 开发agent.js。通过大模型生成公式的计算dsl（例如：Add(1, 2)）。
+        - 5. 开发agent.js。通过大模型生成公式的计算dsl（例如：Add(1, 2)）。执行npm run invoke:agent看效果
             - 实现：在agent.js文件中，实现了一个简单的agent，能够通过大模型生成公式的计算dsl。
             - 执行命令：npm run invoke:agent，即可在控制台中看到大模型生成的公式的计算dsl。
 
