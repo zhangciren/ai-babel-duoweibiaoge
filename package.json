@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel src -d dist",
     "mybuild": "node compile.js",
-    "invoke": "node formula.js"
+    "invoke": "node formula.js",
+    "invoke:agent": "node agent.js"
   },
   "type": "module",
   "repository": {

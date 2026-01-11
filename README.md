@@ -20,6 +20,13 @@
     - 操作步骤
         - 1. 新建formula.js文件，实现了一个简单的公式编译器，能够计算出公式的结果。（执行npm run invoke即可）
         - 2. 新建agent.js文件。安装依赖@langchain/core @langchain/langgraph @langchain/ollama
+        - 3. 模型本地部署
+            - 安装ollama：brew install ollama
+            - 启动ollama服务：ollama serve
+            - 启动模型：ollama run qwen3:0.6b
+            - 查看模型列表：ollama list 
+        - 4. 把模型启动起来：ollama serve
+
 
 
 
