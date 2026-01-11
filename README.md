@@ -1,4 +1,5 @@
 # 操作记录
+- 最核心的代码是formula.js文件 和 agent.js文件
 - 实现1: 通过babel对src/index.js文件进行编译，生成dist/index.js文件（执行npm run build即可）
 - 实现2: 通过@babel/plugin-transform-arrow-functions插件，将src/index.js文件中的箭头函数，转换成普通函数。（执行npm run build即可）
 - 实现3: 通过@babel/preset-env预设，将src/index.js文件中箭头函数转为普通函数 + const转为let (es6+的语法，转换成es5的语法)（执行npm run build即可）
