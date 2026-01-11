@@ -10,7 +10,7 @@
     - 实现：在plugins/ArrowFunctionPlugin.js文件中，实现一个简单的babel插件，将箭头函数转换成普通函数。
     - 在compile.js文件中，引入ArrowFunctionPlugin插件，将箭头函数转换成普通函数。
     - 执行命令：npm run mybuild，即可在dist/myindex.js文件中看到编译后的代码。
-- 实现6: 类飞书多维表格编译器实战
+- 实现6: 类飞书多维表格编译器实战(接入AI agent)
     - 原理介绍：
         - 例如，需要实现sum(1+1)
         - 首先，拆。s、u、m、(、1、+、1、)
@@ -19,6 +19,8 @@
         - 3. 代码生成(generator)  或者  代码执行(interpreter)——————我们现在这个实战场景，是用的代码执行（interpreter）。
     - 操作步骤
         - 1. 新建formula.js文件，实现了一个简单的公式编译器，能够计算出公式的结果。（执行npm run invoke即可）
+        - 2. 新建agent.js文件。安装依赖@langchain/core @langchain/langgraph @langchain/ollama
+
 
 
 
