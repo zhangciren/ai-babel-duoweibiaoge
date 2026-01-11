@@ -29,6 +29,10 @@
         - 5. 开发agent.js。通过大模型生成公式的计算dsl（例如：Add(1, 2)）。执行npm run invoke:agent看效果
             - 实现：在agent.js文件中，实现了一个简单的agent，能够通过大模型生成公式的计算dsl。
             - 执行命令：npm run invoke:agent，即可在控制台中看到大模型生成的公式的计算dsl。
+            - 调用formulaInvoker函数，计算出公式的结果。
+            - 执行命令：npm run invoke:agent，即可在控制台中看到大模型生成的公式的计算结果。
+* 直播回放：https://e2gaa.xetslk.com/sl/xpjFy
+* 飞书链接：https://u19tul1sz9g.feishu.cn/docx/GvkQdC4ORojg7VxlV13c0A1knqP   密码：9855#2g5
 
 
 
